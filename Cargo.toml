@@ -8,3 +8,6 @@ edition = "2018"
 async-std = { version = "1", features = ["attributes"] }
 tide = "0.16"
 uuid = { version = "0.8", features = ["v4"] }
+
+[dev-dependencies]
+surf = "2"

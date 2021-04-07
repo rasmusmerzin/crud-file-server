@@ -1,5 +1,7 @@
 # crud-file-server
 
+A simple HTTP fileserver with PUT, GET and DELETE methods.
+
 ## Environment Variables
 
 - `DIRECTORY` – directory path to write to and read files from  
