@@ -1,5 +1,7 @@
 # crud-file-server
 
+[![pipeline status](https://gitlab.com/rasmusmerzin/crud-file-server/badges/master/pipeline.svg)](https://gitlab.com/rasmusmerzin/crud-file-server/-/commits/master)
+
 A simple HTTP fileserver with PUT, GET and DELETE methods.
 
 ## Environment Variables
