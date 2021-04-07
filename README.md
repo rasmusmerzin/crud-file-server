@@ -9,7 +9,7 @@ A simple HTTP fileserver with PUT, GET and DELETE methods.
 - `DIRECTORY` – directory path to write to and read files from  
   default: `DIRECTORY=content` (relative)
 - `SERVER_ADDR` – server socket address  
-  default: `SERVER_ADDR=127.0.0.1:8000`
+  default: `SERVER_ADDR=0.0.0.0:8000`
 
 ## Example
 

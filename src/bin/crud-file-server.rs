@@ -2,5 +2,7 @@ use crud_file_server::{serve, Config};
 
 #[async_std::main]
 async fn main() {
-    serve(Config::from_env()).await.unwrap();
+    let config = Config::from_env();
+    println!("Serving at {}", config.srv_addr);
+    serve(config).await.unwrap();
 }

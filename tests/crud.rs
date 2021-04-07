@@ -6,7 +6,7 @@ use crud_file_server::{serve, Config};
 async fn crud() {
     let config = Config {
         dir_path: PathBuf::from("temp_content"),
-        srv_addr: "127.0.0.1:8000".into(),
+        srv_addr: "0.0.0.0:8000".into(),
     };
     fs::remove_dir_all(&config.dir_path).await.ok();
     let serve_handle = {
