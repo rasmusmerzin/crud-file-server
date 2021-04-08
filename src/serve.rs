@@ -9,7 +9,7 @@ async fn put(req: Request<Arc<State>>) -> tide::Result<String> {
     let name = Uuid::new_v4().to_string();
     let path = req.state().dir_path.join(&name);
     let file = OpenOptions::new()
-        .create(true)
+        .create_new(true)
         .write(true)
         .open(&path)
         .await?;

@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org).
 ### Fixed
 
 - Docker image working directory set to `/`
+- Put method fails when generated UUID exists
 
 ## [0.1.0] - 2021-04-08
 
