@@ -20,7 +20,6 @@ COPY src ./src
 RUN cargo build --release
 
 FROM debian:stable-slim AS release
-WORKDIR app
 RUN apt-get update -y
 RUN apt-get upgrade -y
 COPY --from=builder /app/target/release/crud-file-server .

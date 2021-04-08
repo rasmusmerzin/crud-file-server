@@ -8,10 +8,10 @@
     <img alt="license" src="https://img.shields.io/crates/l/crud-file-server" />
   </a>
   <a href="https://crates.io/crates/crud-file-server">
-    <img alt="version" src="https://img.shields.io/crates/v/crud-file-server" />
+    <img alt="crates" src="https://img.shields.io/crates/v/crud-file-server?label=crates.io" />
   </a>
   <a href="https://hub.docker.com/repository/docker/rasmusmerzin/crud-file-server">
-    <img alt="size" src="https://img.shields.io/docker/image-size/rasmusmerzin/crud-file-server" />
+    <img alt="docker" src="https://img.shields.io/docker/v/rasmusmerzin/crud-file-server?label=docker&sort=semver" />
   </a>
 </h1>
 
@@ -20,7 +20,7 @@ A simple HTTP file server with PUT, GET and DELETE methods.
 ## Environment Variables
 
 - `DIRECTORY` – directory path to write to and read files from  
-  default: `DIRECTORY=content` (relative)
+  default: `DIRECTORY=content`
 - `SERVER_ADDR` – server socket address  
   default: `SERVER_ADDR=0.0.0.0:8000`
 
