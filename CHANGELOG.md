@@ -7,10 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org).
 
 ## [Unreleased]
 
+### Added
+
+- Post method
+
+### Changed
+
+- Put method requires resource address
+
 ### Fixed
 
 - Docker image working directory set to `/`
-- Put method fails when generated UUID exists
+- Put method replaces existing resource
 
 ## [0.1.0] - 2021-04-08
 

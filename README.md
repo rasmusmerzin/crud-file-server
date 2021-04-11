@@ -35,7 +35,7 @@ $ cargo run
 Create (upload)
 
 ```
-$ curl -T <file_path> localhost:8000
+$ curl localhost:8000 --data-binary @<file_path>
 3718021f-1c23-4dcb-9a90-6d1a74709744
 ```
 
@@ -46,10 +46,16 @@ $ curl localhost:8000/3718021f-1c23-4dcb-9a90-6d1a74709744
 <file>
 ```
 
+Update (overwrite)
+
+```
+$ curl localhost:8000/3718021f-1c23-4dcb-9a90-6d1a74709744 -X put --data-binary @<file_path>
+```
+
 Delete
 
 ```
-$ curl -X delete localhost:8000/3718021f-1c23-4dcb-9a90-6d1a74709744
+$ curl localhost:8000/3718021f-1c23-4dcb-9a90-6d1a74709744 -X delete
 ```
 
 ## Docker Image

@@ -17,15 +17,6 @@ async fn crud() {
     };
     task::sleep(std::time::Duration::from_secs(1)).await;
 
-    let payload = "Hello, World!";
-
-    let mut res = surf::put(format!("http://{}", config.srv_addr))
-        .body(payload)
-        .await
-        .unwrap();
-    assert_eq!(res.status(), 200);
-    let uuid = res.body_string().await.unwrap();
-
     assert_eq!(
         surf::get(format!("http://{}/none", config.srv_addr))
             .await
@@ -34,11 +25,38 @@ async fn crud() {
         404
     );
 
+    let payload = "";
+    let mut res = surf::post(format!("http://{}", config.srv_addr))
+        .body(payload)
+        .await
+        .unwrap();
+    assert_eq!(res.status(), 200);
+    let uuid = res.body_string().await.unwrap();
+
     let mut res = surf::get(format!("http://{}/{}", config.srv_addr, uuid))
         .await
         .unwrap();
     assert_eq!(res.status(), 200);
-    assert_eq!(res.body_string().await.ok(), Some(payload.to_string()));
+    assert_eq!(
+        res.body_bytes().await.ok(),
+        Some(payload.as_bytes().to_vec())
+    );
+
+    let payload = "Hello, World!";
+    let res = surf::put(format!("http://{}/{}", config.srv_addr, uuid))
+        .body(payload)
+        .await
+        .unwrap();
+    assert_eq!(res.status(), 200);
+
+    let mut res = surf::get(format!("http://{}/{}", config.srv_addr, uuid))
+        .await
+        .unwrap();
+    assert_eq!(res.status(), 200);
+    assert_eq!(
+        res.body_bytes().await.ok(),
+        Some(payload.as_bytes().to_vec())
+    );
 
     assert_eq!(
         surf::delete(format!("http://{}/{}", config.srv_addr, uuid))
