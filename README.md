@@ -35,7 +35,7 @@ $ cargo run
 Create (upload)
 
 ```
-$ curl localhost:8000 --data-binary @<file_path>
+$ curl localhost:8000 -d Hello
 3718021f-1c23-4dcb-9a90-6d1a74709744
 ```
 
@@ -43,13 +43,23 @@ Read (download)
 
 ```
 $ curl localhost:8000/3718021f-1c23-4dcb-9a90-6d1a74709744
-<file>
+Hello
 ```
 
 Update (overwrite)
 
 ```
-$ curl localhost:8000/3718021f-1c23-4dcb-9a90-6d1a74709744 -X put --data-binary @<file_path>
+$ curl localhost:8000/3718021f-1c23-4dcb-9a90-6d1a74709744 -X put -d Hey
+$ curl localhost:8000/3718021f-1c23-4dcb-9a90-6d1a74709744
+Hey
+```
+
+Update (append)
+
+```
+$ curl localhost:8000/3718021f-1c23-4dcb-9a90-6d1a74709744 -X patch -d ', World!'
+$ curl localhost:8000/3718021f-1c23-4dcb-9a90-6d1a74709744
+Hey, World!
 ```
 
 Delete
