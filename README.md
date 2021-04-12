@@ -15,7 +15,7 @@
   </a>
 </h1>
 
-A simple HTTP file server with PUT, GET and DELETE methods.
+A simple HTTP file server with POST, GET, PUT, PATCH and DELETE methods.
 
 ## Environment Variables
 
