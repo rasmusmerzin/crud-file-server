@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org).
 
 ## [Unreleased]
 
+## [0.2.0] - 2021-04-12
+
 ### Added
 
 - Post method
@@ -24,5 +26,6 @@ and this project adheres to [Semantic Versioning](https://semver.org).
 
 - Initial release
 
-[unreleased]: https://gitlab.com/rasmusmerzin/crud-file-server/compare/v0.1.0...master
+[unreleased]: https://gitlab.com/rasmusmerzin/crud-file-server/compare/v0.2.0...master
+[0.2.0]: https://gitlab.com/rasmusmerzin/crud-file-server/compare/v0.1.0...v0.2.0
 [0.1.0]: https://gitlab.com/rasmusmerzin/crud-file-server/tree/v0.1.0
