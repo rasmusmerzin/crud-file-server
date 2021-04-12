@@ -25,7 +25,7 @@ async fn crud() {
         404
     );
 
-    let payload = "";
+    let payload = "init";
     let mut res = surf::post(format!("http://{}", config.srv_addr))
         .body(payload)
         .await
@@ -42,7 +42,7 @@ async fn crud() {
         Some(payload.as_bytes().to_vec())
     );
 
-    let payload = "Hello, World!";
+    let payload = "Hello";
     let res = surf::put(format!("http://{}/{}", config.srv_addr, uuid))
         .body(payload)
         .await
@@ -56,6 +56,22 @@ async fn crud() {
     assert_eq!(
         res.body_bytes().await.ok(),
         Some(payload.as_bytes().to_vec())
+    );
+
+    let additional_payload = ", World!";
+    let res = surf::patch(format!("http://{}/{}", config.srv_addr, uuid))
+        .body(additional_payload)
+        .await
+        .unwrap();
+    assert_eq!(res.status(), 200);
+
+    let mut res = surf::get(format!("http://{}/{}", config.srv_addr, uuid))
+        .await
+        .unwrap();
+    assert_eq!(res.status(), 200);
+    assert_eq!(
+        res.body_bytes().await.ok(),
+        Some([payload, additional_payload].join("").as_bytes().to_vec())
     );
 
     assert_eq!(
