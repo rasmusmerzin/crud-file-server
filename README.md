@@ -1,4 +1,6 @@
 <h1>
+  <img src="./logo.svg" />
+  <br />
   crud-file-server
   <br />
   <a href="https://gitlab.com/rasmusmerzin/crud-file-server/-/commits/master">
