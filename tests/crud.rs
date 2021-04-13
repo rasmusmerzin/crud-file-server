@@ -48,10 +48,7 @@ async fn crud() {
         .await
         .unwrap();
     assert_eq!(res.status(), 200);
-    assert_eq!(
-        res.body_string().await.ok(),
-        Some(payload.len().to_string())
-    );
+    assert_eq!(res.body_json::<usize>().await.ok(), Some(payload.len()));
 
     let mut res = surf::get(format!("http://{}/{}", config.srv_addr, uuid))
         .await
@@ -69,8 +66,8 @@ async fn crud() {
         .unwrap();
     assert_eq!(res.status(), 200);
     assert_eq!(
-        res.body_string().await.ok(),
-        Some((payload.len() + additional_payload.len()).to_string())
+        res.body_json::<usize>().await.ok(),
+        Some(payload.len() + additional_payload.len())
     );
 
     let mut res = surf::get(format!("http://{}/{}", config.srv_addr, uuid))
