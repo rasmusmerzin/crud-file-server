@@ -10,6 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org).
 ### Added
 
 - Logo
+- Put and post methods return file size in bytes
 
 ## [0.3.0] - 2021-04-12
 
