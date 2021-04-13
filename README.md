@@ -12,7 +12,7 @@
   <a href="https://crates.io/crates/crud-file-server">
     <img alt="crates" src="https://img.shields.io/crates/v/crud-file-server?label=crates.io" />
   </a>
-  <a href="https://hub.docker.com/repository/docker/rasmusmerzin/crud-file-server">
+  <a href="https://hub.docker.com/r/rasmusmerzin/crud-file-server">
     <img alt="docker" src="https://img.shields.io/docker/v/rasmusmerzin/crud-file-server?label=docker&sort=semver" />
   </a>
 </h1>
