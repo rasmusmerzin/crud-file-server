@@ -43,11 +43,15 @@ async fn crud() {
     );
 
     let payload = "Hello";
-    let res = surf::put(format!("http://{}/{}", config.srv_addr, uuid))
+    let mut res = surf::put(format!("http://{}/{}", config.srv_addr, uuid))
         .body(payload)
         .await
         .unwrap();
     assert_eq!(res.status(), 200);
+    assert_eq!(
+        res.body_string().await.ok(),
+        Some(payload.len().to_string())
+    );
 
     let mut res = surf::get(format!("http://{}/{}", config.srv_addr, uuid))
         .await
@@ -59,11 +63,15 @@ async fn crud() {
     );
 
     let additional_payload = ", World!";
-    let res = surf::patch(format!("http://{}/{}", config.srv_addr, uuid))
+    let mut res = surf::patch(format!("http://{}/{}", config.srv_addr, uuid))
         .body(additional_payload)
         .await
         .unwrap();
     assert_eq!(res.status(), 200);
+    assert_eq!(
+        res.body_string().await.ok(),
+        Some((payload.len() + additional_payload.len()).to_string())
+    );
 
     let mut res = surf::get(format!("http://{}/{}", config.srv_addr, uuid))
         .await
