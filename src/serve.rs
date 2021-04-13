@@ -25,7 +25,7 @@ async fn get(req: Request<Arc<State>>) -> tide::Result<Response> {
     }
 }
 
-async fn put(req: Request<Arc<State>>) -> tide::Result<Response> {
+async fn put(req: Request<Arc<State>>) -> tide::Result<String> {
     let path = req.state().dir_path.join(req.param("file")?);
     if path.exists().await {
         remove_file(&path).await?;
@@ -35,19 +35,19 @@ async fn put(req: Request<Arc<State>>) -> tide::Result<Response> {
         .write(true)
         .open(&path)
         .await?;
-    io::copy(req, file).await?;
-    Ok(Response::new(StatusCode::Ok))
+    io::copy(req, &file).await?;
+    Ok(file.metadata().await?.len().to_string())
 }
 
-async fn patch(req: Request<Arc<State>>) -> tide::Result<Response> {
+async fn patch(req: Request<Arc<State>>) -> tide::Result<String> {
     let path = req.state().dir_path.join(req.param("file")?);
     let file = OpenOptions::new()
         .create(true)
         .append(true)
         .open(&path)
         .await?;
-    io::copy(req, file).await?;
-    Ok(Response::new(StatusCode::Ok))
+    io::copy(req, &file).await?;
+    Ok(file.metadata().await?.len().to_string())
 }
 
 async fn delete(req: Request<Arc<State>>) -> tide::Result<Response> {
