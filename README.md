@@ -52,6 +52,7 @@ Update (overwrite)
 
 ```
 $ curl localhost:8000/3718021f-1c23-4dcb-9a90-6d1a74709744 -X put -d Hey
+3
 $ curl localhost:8000/3718021f-1c23-4dcb-9a90-6d1a74709744
 Hey
 ```
@@ -60,6 +61,7 @@ Update (append)
 
 ```
 $ curl localhost:8000/3718021f-1c23-4dcb-9a90-6d1a74709744 -X patch -d ', World!'
+11
 $ curl localhost:8000/3718021f-1c23-4dcb-9a90-6d1a74709744
 Hey, World!
 ```
